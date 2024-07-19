@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=a, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="row mt-4">
+        <div class="col-md-10 offset-md-1">
+            <h2>Cadastro de alunos</h2>
+            <form action="">
+                <div class="col-10">
+
+                    <input type="text" class="form-control" id="nome">
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-primary" id="btn-salvar">Salvar</button>
+                </div>
+
+            </form>
+            <div id="quantidade"></div>
+
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Sequencial</th>
+                        <th>Nome</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="lista">
+                    <tr>
+                        <td>1</td>
+                        <td>Max</td>
+                        <td>
+                            <button class="btn btn-danger">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <script>
+        const lista = [];
+
+function listarDados () {
+   
+
+}
+
+
+        function exibirQuantidade() {
+            const divQuantidade = document.querySelector('#quantidade')
+            divQuantidade.innerHTML = "Quantidade: " + lista.lenght;
+        }
+
+        exibirQuantidade()
+
+        const btn_salvar = document.querySelector('#btn-salvar')
+        btn_salvar.addEventListener('click', () => {
+            const campo = document.querySelector('#nome')
+            const nome = campo.value;
+            if (nome !== '' && nome.leght >= 3) {
+                lista.push(nome)
+                campo.value = ''
+                exibirQuantidade()
+            } else {
+                alert("nome obrigatório. Deve conter no minimo 3 caracteres")
+            }
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>
